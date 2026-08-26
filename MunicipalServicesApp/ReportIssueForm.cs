@@ -21,11 +21,8 @@ namespace MunicipalServicesApp
 
         }
 
-        /// <summary>
-        /// Positions and sizes every control in code. Keeping layout here
-        /// (rather than dragging pixel-by-pixel in the designer) makes it
-        /// easy to tweak spacing consistently across the whole form.
-        /// </summary>
+        // Positions and sizes every control in code. Keeping layout here
+        
         private void LayoutControls()
         {
             int leftMargin = 30;
@@ -68,9 +65,8 @@ namespace MunicipalServicesApp
             this.ClientSize = new Size(fieldWidth + 2 * leftMargin, y);
         }
 
-        /// <summary>
-        /// Applies the shared colour palette and fonts, consistent with the Main Menu.
-        /// </summary>
+        // Applies the shared colour palette and fonts, consistent with the Main Menu.
+        
         private void ApplyTheme()
         {
             this.BackColor = AppTheme.Background;
@@ -114,10 +110,9 @@ namespace MunicipalServicesApp
             btn.FlatAppearance.MouseOverBackColor = AppTheme.Accent;
         }
 
-        /// <summary>
-        /// Fills the category dropdown. Centralised here so adding/removing
-        /// a category later means changing one list, not hunting through the designer.
-        /// </summary>
+        // Fills the category dropdown. Centralised here so adding/removing
+        // a category later means changing one list, not hunting through the designer.
+        
         private void PopulateCategories()
         {
             cmbCategory.Items.Clear();
@@ -133,13 +128,8 @@ namespace MunicipalServicesApp
         }
 
 
-
-
-
-        /// <summary>
-        /// Wires up event handlers for all interactive controls.
-        /// Called once from the constructor.
-        /// </summary>
+        // Wires up event handlers for all interactive controls.
+        
         private void WireUpEvents()
         {
             btnAttach.Click += BtnAttach_Click;
@@ -152,9 +142,8 @@ namespace MunicipalServicesApp
             rtbDescription.TextChanged += (s, e) => UpdateEngagementProgress();
         }
 
-        /// <summary>
-        /// Opens a file dialog so the user can attach an image or document to their report.
-        /// </summary>
+        // Opens a file dialog so the user can attach an image or document to their report.
+        
         private void BtnAttach_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog dialog = new OpenFileDialog())
@@ -172,10 +161,9 @@ namespace MunicipalServicesApp
             }
         }
 
-        /// <summary>
-        /// Briefly flashes a label's colour to the accent colour then back,
-        /// drawing the eye to a change without needing any external animation library.
-        /// </summary>
+        // Briefly flashes a label's colour to the accent colour then back,
+        // drawing the eye to a change without needing any external animation library.
+        
         private void FlashLabel(Label label)
         {
             Color originalColor = label.ForeColor;
@@ -194,13 +182,8 @@ namespace MunicipalServicesApp
             flashTimer.Start();
         }
 
-        /// <summary>
-        /// Recalculates how "complete" the report feels and updates the progress bar
-        /// and encouragement message accordingly. This is our engagement strategy in action:
-        /// visible, immediate feedback that makes reporting feel responsive rather than
-        /// like a form disappearing into a void (directly addressing the low-trust,
-        /// low-feedback pattern documented in Hart et al., 2020).
-        /// </summary>
+        // Recalculates how "complete" the report feels and updates the progress bar
+        // and encouragement message accordingly.
         private void UpdateEngagementProgress()
         {
             int score = 0;
@@ -221,10 +204,9 @@ namespace MunicipalServicesApp
                 lblEngagement.Text = "Your report is complete and ready to submit. Thank you!";
         }
 
-        /// <summary>
-        /// Smoothly animates the progress bar to a target value instead of jumping instantly,
-        /// giving the same "polished" feel React animation would, using a native WinForms Timer.
-        /// </summary>
+        // Smoothly animates the progress bar to a target value instead of jumping instantly,
+        // giving the same "polished" feel React animation would, using a native WinForms Timer.
+        
         private void AnimateProgressTo(int targetValue)
         {
             Timer progressTimer = new Timer();
@@ -248,10 +230,9 @@ namespace MunicipalServicesApp
             progressTimer.Start();
         }
 
-        /// <summary>
-        /// Validates input, builds an Issue object, stores it, and gives the user
-        /// clear success/error feedback.
-        /// </summary>
+        // Validates input, builds an Issue object, stores it, and gives the user
+        // clear success/error feedback.
+        
         private void BtnSubmit_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtLocation.Text))
@@ -302,9 +283,8 @@ namespace MunicipalServicesApp
             this.Close();
         }
 
-        /// <summary>
-        /// Returns the user to the Main Menu without saving anything.
-        /// </summary>
+        // Returns the user to the Main Menu without saving anything.
+        
         private void BtnBack_Click(object sender, EventArgs e)
         {
             this.Close();

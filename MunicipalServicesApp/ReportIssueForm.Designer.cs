@@ -2,14 +2,12 @@
 {
     partial class ReportIssueForm
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
+        // Required designer variable.
+        
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
+        // Clean up any resources being used.
+        
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {

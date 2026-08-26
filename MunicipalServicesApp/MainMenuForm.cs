@@ -16,10 +16,8 @@ namespace MunicipalServicesApp
             SetupFadeInAnimation();
         }
 
-        /// <summary>
-        /// Applies the shared colour scheme/fonts to every control on this form.
-        /// </summary>
-        
+        // Applies the shared colour scheme/fonts to every control on this form.
+                
         private void ApplyTheme()
         {
             this.BackColor = AppTheme.Background;
@@ -37,9 +35,8 @@ namespace MunicipalServicesApp
             StyleMenuButton(btnServiceStatus, enabled: false);
         }
 
-        /// <summary>
-        /// Styles a main-menu button.
-        /// </summary>
+        // Styles a main-menu button.
+        
         private void StyleMenuButton(Button btn, bool enabled)
         {
             btn.Enabled = enabled;
@@ -62,11 +59,8 @@ namespace MunicipalServicesApp
             }
         }
 
-        /// <summary>
-        /// Fades the form in from transparent to fully opaque on load.
-        
-        /// </summary>
-        
+        // Fades the form in from transparent to fully opaque on load.
+                
         private void SetupFadeInAnimation()
         {
             this.Opacity = 0;

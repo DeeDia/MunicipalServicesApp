@@ -2,11 +2,9 @@
 
 namespace MunicipalServicesApp
 {
-    ///<summary>
+    
     // Place for consistent colour palette and shared styling across the app.
-    ///</summary>
-    ///
-
+    
     public static class AppTheme
     {
         // Primary brand colours

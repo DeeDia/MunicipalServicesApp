@@ -3,10 +3,9 @@ using System.Collections.Generic;
 
 namespace MunicipalServicesApp
 {
-    ///<summary>
+    
     // Represents an issue reported by a citizen, including details such as description, location, and status.
-    ///</summary>
-
+   
     public class Issue
     {
         public string Location { get; set; }
