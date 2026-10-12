@@ -13,6 +13,7 @@ namespace MunicipalServicesApp
         {
             InitializeComponent();
             ApplyTheme();
+            btnLocalEvents.Click += BtnLocalEvents_Click;
             SetupFadeInAnimation();
         }
 
@@ -31,12 +32,18 @@ namespace MunicipalServicesApp
             lblSubtitle.TextAlign = ContentAlignment.MiddleCenter;
 
             StyleMenuButton(btnReportIssues, enabled: true);
-            StyleMenuButton(btnLocalEvents, enabled: false);
+            StyleMenuButton(btnLocalEvents, enabled: true);
             StyleMenuButton(btnServiceStatus, enabled: false);
         }
 
+        private void BtnLocalEvents_Click(object sender, EventArgs e)
+        {
+            var eventsForm = new EventsForm();
+            eventsForm.ShowDialog();
+        }
+
         // Styles a main-menu button.
-        
+
         private void StyleMenuButton(Button btn, bool enabled)
         {
             btn.Enabled = enabled;
@@ -45,6 +52,8 @@ namespace MunicipalServicesApp
             btn.FlatAppearance.BorderSize = 0;
             btn.Height = 45;
             btn.Cursor = enabled ? Cursors.Hand : Cursors.No;
+            btn.Enabled = enabled;
+            btn.UseMnemonic = false; // stops WinForms treating the "&" in "Events & Announcements" as a keyboard shortcut marker
 
             if (enabled)
             {
