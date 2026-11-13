@@ -14,11 +14,11 @@ namespace MunicipalServicesApp
             InitializeComponent();
             ApplyTheme();
             btnLocalEvents.Click += BtnLocalEvents_Click;
+            btnServiceStatus.Click += BtnServiceStatus_Click;
             SetupFadeInAnimation();
         }
 
         // Applies the shared colour scheme/fonts to every control on this form.
-                
         private void ApplyTheme()
         {
             this.BackColor = AppTheme.Background;
@@ -33,27 +33,19 @@ namespace MunicipalServicesApp
 
             StyleMenuButton(btnReportIssues, enabled: true);
             StyleMenuButton(btnLocalEvents, enabled: true);
-            StyleMenuButton(btnServiceStatus, enabled: false);
-        }
-
-        private void BtnLocalEvents_Click(object sender, EventArgs e)
-        {
-            var eventsForm = new EventsForm();
-            eventsForm.ShowDialog();
+            StyleMenuButton(btnServiceStatus, enabled: true);
         }
 
         // Styles a main-menu button.
-
         private void StyleMenuButton(Button btn, bool enabled)
         {
             btn.Enabled = enabled;
+            btn.UseMnemonic = false; // stops WinForms treating the "&" as a keyboard shortcut marker
             btn.Font = AppTheme.ButtonFont;
             btn.FlatStyle = FlatStyle.Flat;
             btn.FlatAppearance.BorderSize = 0;
             btn.Height = 45;
             btn.Cursor = enabled ? Cursors.Hand : Cursors.No;
-            btn.Enabled = enabled;
-            btn.UseMnemonic = false; // stops WinForms treating the "&" in "Events & Announcements" as a keyboard shortcut marker
 
             if (enabled)
             {
@@ -69,7 +61,6 @@ namespace MunicipalServicesApp
         }
 
         // Fades the form in from transparent to fully opaque on load.
-                
         private void SetupFadeInAnimation()
         {
             this.Opacity = 0;
@@ -94,6 +85,18 @@ namespace MunicipalServicesApp
         {
             var reportForm = new ReportIssueForm();
             reportForm.ShowDialog(); // modal - blocks this window until the report form closes
+        }
+
+        private void BtnLocalEvents_Click(object sender, EventArgs e)
+        {
+            var eventsForm = new EventsForm();
+            eventsForm.ShowDialog();
+        }
+
+        private void BtnServiceStatus_Click(object sender, EventArgs e)
+        {
+            var statusForm = new ServiceStatusForm();
+            statusForm.ShowDialog();
         }
     }
 }

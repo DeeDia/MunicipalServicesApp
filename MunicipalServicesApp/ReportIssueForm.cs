@@ -273,9 +273,13 @@ namespace MunicipalServicesApp
 
             IssueRepository.Issues.Add(newIssue);
 
+            // The issue also becomes a trackable service request with a unique reference
+            ServiceRequest request = ServiceRequestRepository.AddFromIssue(newIssue);
+
             MessageBox.Show(
                 "Thank you! Your issue has been reported successfully.\n\n" +
-                "Reference: Issue #" + IssueRepository.Issues.Count,
+                "Your tracking reference is: " + request.Reference + "\n" +
+                "Follow its progress under Service Request Status on the main menu.",
                 "Report Submitted",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information);
